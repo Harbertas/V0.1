@@ -239,27 +239,29 @@ bool IsOdd(duomenys &duom){
 void atskirti(vector<duomenys>& sarasas, vector<duomenys>& sarasas2, int fileLength, double &timeTaken){
     auto start = std::chrono::high_resolution_clock::now();
 
-//   vector<duomenys>::iterator it;
-//   for(it = sarasas.begin(); it != sarasas.end(); ++it){
-//       if(it->rezult >= 5){
-//           break;
-//       }
-//   }
-//   std::copy(it, sarasas.end(), back_inserter(sarasas2));
-//   sarasas.erase(it, sarasas.end());
+   vector<duomenys>::iterator it;
+   for(it = sarasas.begin(); it != sarasas.end(); ++it){
+       if(it->rezult >= 5){
+           break;
+       }
+   }
+   std::copy(it, sarasas.end(), back_inserter(sarasas2));
+   //sarasas.erase(it, sarasas.end());
+   cout << sarasas.size()-sarasas2.size() << endl;
+   sarasas.resize(sarasas.size()-sarasas2.size());
 
-    vector<duomenys>::reverse_iterator it;
-    for(it = sarasas.rbegin(); it != sarasas.rend(); ++it){
-        if(it->rezult >= 5){
-            sarasas2.push_back(*it);
-            sarasas.pop_back();
-        }
-        if(sarasas2.size() % (fileLength / 10) == 0){
-            sarasas2.shrink_to_fit();
-            //Neveikia!
-            //sarasas.shrink_to_fit();
-        }
-    }
+//    vector<duomenys>::reverse_iterator it;
+//    for(it = sarasas.rbegin(); it != sarasas.rend(); ++it){
+//        if(it->rezult >= 5){
+//            sarasas2.push_back(*it);
+//            sarasas.pop_back();
+//        }
+//        if(sarasas2.size() % (fileLength / 10) == 0){
+//            sarasas2.shrink_to_fit();
+//            //Neveikia!
+//            //sarasas.shrink_to_fit();
+//        }
+//    }
 
     //netikslinga
     //sarasas2.reserve(fileLength);
